@@ -4,6 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
+
+//database connection
+const sequelize = require('./database/config');
+
+
+// require models
+const userModel = require('./database/models/user')
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 

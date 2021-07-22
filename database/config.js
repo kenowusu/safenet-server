@@ -18,3 +18,6 @@ sequelize.authenticate()
 .catch((error)=>{
   console.error(`Error - Unable to connect to the database: ${error}`);
 })
+
+
+module.exports.connection = sequelize;
