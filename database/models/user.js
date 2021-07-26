@@ -31,3 +31,5 @@ User.init(
 User.sync({
   force:true
 })
+
+exports.User = User;

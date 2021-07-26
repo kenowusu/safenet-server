@@ -12,6 +12,7 @@ const sequelize = require('./database/config');
 
 // require models
 const userModel = require('./database/models/user')
+const passwordModel = require('./database/models/password')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
