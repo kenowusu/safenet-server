@@ -15,6 +15,7 @@ const userModel = require('./database/models/user')
 const passwordModel = require('./database/models/password');
 const CustomFieldModle = require('./database/models/customfield');
 const folderModel  = require('./database/models/folder');
+const noteModel   = require('./database/models/note');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
