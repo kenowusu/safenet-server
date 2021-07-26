@@ -39,4 +39,4 @@ CustomField.sync({
   force:true
 })
 
-exports.User = CustomField;
+exports.CustomField = CustomField;

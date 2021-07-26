@@ -1,6 +1,6 @@
 const sequelize = require('../config').connection;
 const {Model,DataTypes} = require('sequelize');
-
+const {CustomField}  =  require('./customfield');
 
 
 
@@ -60,5 +60,11 @@ Password.init(
     updatedAt:'updated_at'
   }
 );
+
+//association
+
+
+Password.hasMany(CustomField,{foreignKey:'password_id',key:'id'});
+CustomField.belongsTo(Password,{constraints:false});
 
 exports.Password = Password;
