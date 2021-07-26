@@ -24,10 +24,7 @@ Password.init(
       type:DataTypes.STRING,
       allowNull:false
     },
-    folder:{
-      type:DataTypes.STRING
-      //category of the website
-    },
+
     username:{
       type:DataTypes.STRING,
       allowNull:true
@@ -65,6 +62,6 @@ Password.init(
 
 
 Password.hasMany(CustomField,{foreignKey:'password_id',key:'id'});
-CustomField.belongsTo(Password,{constraints:false});
+CustomField.belongsTo(Password,{constraints:false,foreignKey:'password_id'});
 
 exports.Password = Password;

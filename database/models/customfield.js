@@ -35,8 +35,6 @@ CustomField.init(
 );
 
 
-CustomField.sync({
-  force:true
-})
+
 
 exports.CustomField = CustomField;

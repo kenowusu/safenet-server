@@ -4,9 +4,9 @@ const {DataTypes,Model} = require('sequelize');
 
 
 
-class User extends Model{}
+class Folder extends Model{}
 
-User.init(
+Folder.init(
   {
 
     id:{
@@ -14,11 +14,7 @@ User.init(
       primaryKey:true,
       allowNull:false
     },
-    first_name:{
-      type:DataTypes.STRING,
-      allowNull:false
-    },
-    last_name:{
+    name:{
       type:DataTypes.STRING,
       allowNull:false
     }
@@ -27,7 +23,7 @@ User.init(
 
     //model options
     sequelize,
-    modelName:'User',
+    modelName:'Folder',
     timestamps:true,
     createdAt:'created_at',
     updatedAt:'updated_at'
@@ -39,9 +35,7 @@ User.init(
 
 
 //association
-User.hasMany(Password,{foreignKey:'user_id',key:'id'})
-Password.belongsTo(User,{constraints:false,foreignKey:'user_id'});
+Folder.hasMany(Password,{foreignKey:'folder_id',key:'id'});
+Password.belongsTo(Folder,{constraints:false,foreignKey:'folder_id'});
 
-exports.User = User;
-
-sequelize.sync({force:true})
+exports.Folder = Folder;

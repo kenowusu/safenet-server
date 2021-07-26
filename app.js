@@ -12,7 +12,9 @@ const sequelize = require('./database/config');
 
 // require models
 const userModel = require('./database/models/user')
-const passwordModel = require('./database/models/password')
+const passwordModel = require('./database/models/password');
+const CustomFieldModle = require('./database/models/customfield');
+const folderModel  = require('./database/models/folder');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
