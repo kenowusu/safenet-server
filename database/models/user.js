@@ -1,7 +1,7 @@
 const sequelize = require('../config').connection;
 const {Password}  = require('./password');
 const {DataTypes,Model} = require('sequelize');
-
+const bcrypt = require('bcrypt');
 
 
 class User extends Model{}
@@ -43,7 +43,12 @@ User.init(
 );
 
 
-
+//User model hooks
+User.addHook('beforeCreate',(user,options)=>{
+   const saltRounds = 10;
+   const userPassword = bcrypt.hashSync(user.password,saltRounds);
+   user.password = userPassword;
+})
 
 
 //association
