@@ -50,4 +50,5 @@ User.init(
 User.hasMany(Password,{foreignKey:'user_id',key:'id'})
 Password.belongsTo(User,{constraints:false,foreignKey:'user_id'});
 
+
 exports.User = User;
