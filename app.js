@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 
 
+//require .env
+require('dotenv').config();
+
 //database connection
 const sequelize = require('./database/config');
 
