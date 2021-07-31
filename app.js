@@ -22,6 +22,7 @@ const noteModel   = require('./database/models/note');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+let passwordsRouter = require('./routes/passwords');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/passwords',passwordsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
