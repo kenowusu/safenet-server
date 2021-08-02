@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const {User} = require('../database/models/user');
 const bcrypt = require('bcrypt');
-
+const {generateToken} = require('./util/token');
 
 const authenticate = (req,res,next)=>{
 
@@ -24,11 +24,9 @@ const authenticate = (req,res,next)=>{
        // if not correct send user authentication error
        return res.send(error);
      }else{
-       //create token for user
-        const privateKey = process.env.BCRYPT_SECRET;
-        const expiresIn = "1 hour";
-        const token = jwt.sign({userId:user.id},privateKey,{expiresIn:expiresIn});
-        return res.send(token);
+       const userId = user.id;
+       const token = generateToken(userId);
+       return res.send({token:token});
 
      }
    })//correctPassword
