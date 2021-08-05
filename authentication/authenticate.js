@@ -26,8 +26,11 @@ const authenticate = (req,res,next)=>{
      }else{
        const userId = user.id;
        const token = generateToken(userId);
-       return res.send({token:token});
+       // return res.send({token:token});
 
+       //store token in cookie
+       res.cookie('tk',token);
+       res.send({message:"Successfully authenticated"})
      }
    })//correctPassword
 
