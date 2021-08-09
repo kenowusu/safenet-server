@@ -22,7 +22,7 @@ Password.init(
     },
     url:{
       type:DataTypes.STRING,
-      allowNull:false
+      allowNull:true
     },
 
     username:{
