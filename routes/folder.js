@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {createFolder} = require('../lib/folder/folder')
+const {createFolder} = require('../lib/folder/createFolder');
+
 
 
 
