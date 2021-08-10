@@ -33,9 +33,13 @@ Folder.init(
 
 
 
-
+// sequelize.sync({force:true})
+// .catch(function(err){
+//   console.log(err.message)
+// })
 //association
-Folder.hasMany(Password,{foreignKey:'folder_id',key:'id'});
-Password.belongsTo(Folder,{constraints:false,foreignKey:'folder_id'});
+Folder.hasMany(Password,{foreignKey:'folder_id',key:'id',allowNull:true,constraints:false});
+Password.belongsTo(Folder,{constraints:false,foreignKey:'folder_id',allowNull:true});
+
 
 exports.Folder = Folder;
