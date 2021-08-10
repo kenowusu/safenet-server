@@ -53,8 +53,8 @@ User.addHook('beforeCreate',(user,options)=>{
 
 
 //association
-User.hasMany(Password,{foreignKey:'user_id',key:'id'})
-Password.belongsTo(User,{constraints:false,foreignKey:'user_id'});
+User.hasMany(Password,{foreignKey:'user_id',key:'id',allowNull:false,constraints:true})
+// sequelize.sync({force:true})
 
 
 exports.User = User;
