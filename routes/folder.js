@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const {createFolder} = require('../lib/folder/folder')
 
 
 
@@ -11,7 +11,8 @@ router.get('/',(req,res,next)=>{
 
 
 
-
+//create folder
+router.post('/',createFolder,(req,res,next)=>{})
 
 
 
