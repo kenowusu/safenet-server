@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {authenticate} = require('../lib/authentication/authenticate');
+const {login} = require('../lib/authentication/login');
 const {register}   = require('../lib/authentication/register');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.post('/login',authenticate,(req,res,next)=>{})
+router.post('/login',login,(req,res,next)=>{})
 
 router.post('/register',register,(req,res,next)=>{})
 
