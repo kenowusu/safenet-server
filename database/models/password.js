@@ -24,6 +24,15 @@ Password.init(
       type:DataTypes.STRING,
       allowNull:true
     },
+    domain:{
+      type:DataTypes.STRING,
+      allowNull:true
+    },
+
+    subdomain:{
+      type:DataTypes.STRING,
+      allowNull:true
+    },
 
     username:{
       type:DataTypes.STRING,
