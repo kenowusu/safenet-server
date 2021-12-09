@@ -5,6 +5,7 @@ const {suggestPassword} = require('../lib/password/suggestPassword');
 const {getPassword} = require('../lib/password/getPassword');
 const {isAuthorized} = require('../lib/authentication/isAuthorized');
 const {getUrlPasswords} = require('../lib/password/getUrlPasswords');
+const {customFields} = require('../lib/customField/customFields');
 
 /*Create Passwords*/
 
@@ -22,4 +23,16 @@ router.get('/password/:passwordId',isAuthorized,getPassword,(req,res,next)=>{});
 
 //get url passwords when on websites
 router.get('/url',isAuthorized,getUrlPasswords,(req,res,next)=>{});
+
+
+
+
+
+
+
+
+
+
+//======================CUSTOM FIELDS ==========================================//
+router.post('/:passwordId/customfields',isAuthorized,customFields,(req,res,next)=>{});
 module.exports = router;
