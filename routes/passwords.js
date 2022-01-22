@@ -8,7 +8,7 @@ const {getUrlPasswords} = require('../lib/password/getUrlPasswords');
 
 /*Create Passwords*/
 
-router.post('/create',createPassword,(req,res,next)=>{});
+router.post('/create',isAuthorized,createPassword,(req,res,next)=>{});
 
 
 
