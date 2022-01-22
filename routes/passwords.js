@@ -3,7 +3,7 @@ let router = express.Router();
 const {createPassword} = require('../lib/password/createPassword');
 const {suggestPassword} = require('../lib/password/suggestPassword');
 const {getPassword} = require('../lib/password/getPassword');
-const {isAuthorized} = require('../lib/authentication/isAuthorized');
+const {isAuthorized} = require('../lib/authentication/isAuthenticated');
 const {getUrlPasswords} = require('../lib/password/getUrlPasswords');
 
 /*Create Passwords*/
