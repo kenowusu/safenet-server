@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 const {createPassword} = require('../lib/password/createPassword');
 const {suggestPassword} = require('../lib/password/suggestPassword');
+import getPasswords from '../lib/password/getPasswords';
 const {getPassword} = require('../lib/password/getPassword');
 const {isAuthorized} = require('../lib/authentication/isAuthenticated');
 const {getUrlPasswords} = require('../lib/password/getUrlPasswords');
@@ -14,6 +15,10 @@ router.post('/create',isAuthorized,createPassword,(req,res,next)=>{});
 
 router.post('/suggestion',suggestPassword,(req,res,next)=>{});
 
+
+
+//get passwords
+router.get('/',isAuthorized,getPasswords,(req,res,next)=>{});
 
 
 //get password
