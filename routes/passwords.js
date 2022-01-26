@@ -4,6 +4,7 @@ const {createPassword} = require('../lib/password/createPassword');
 const {suggestPassword} = require('../lib/password/suggestPassword');
 import getPasswords from '../lib/password/getPasswords';
 const {getPassword} = require('../lib/password/getPassword');
+import updatePassword from '../lib/password/updatePassword';
 const {isAuthorized} = require('../lib/authentication/isAuthenticated');
 const {getUrlPasswords} = require('../lib/password/getUrlPasswords');
 
@@ -23,6 +24,10 @@ router.get('/',isAuthorized,getPasswords,(req,res,next)=>{});
 
 //get password
 router.get('/password/:passwordId',isAuthorized,getPassword,(req,res,next)=>{});
+
+
+//get password
+router.put('/password/:passwordId',isAuthorized,updatePassword,(req,res,next)=>{});
 
 
 //get url passwords when on websites
