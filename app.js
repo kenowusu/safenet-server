@@ -24,7 +24,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let passwordsRouter = require('./routes/passwords');
 let folderRouter    = require('./routes/folder');
-
+let toolRouter  = require('./routes/tool');
 var app = express();
 
 // view engine setup
@@ -41,6 +41,7 @@ app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/passwords',passwordsRouter);
 app.use('/api/folders',folderRouter);
+app.use('/api/tools',toolRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
