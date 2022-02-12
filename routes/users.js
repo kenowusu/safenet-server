@@ -15,6 +15,6 @@ router.post('/login',login,(req,res,next)=>{})
 router.post('/register',register,(req,res,next)=>{});
 
 //check is Authenticated
-router.get('/isLoggedIn',isLoggedIn,(req,res,next)=>{})
+router.post('/isLoggedIn',isLoggedIn,(req,res,next)=>{})
 
 module.exports = router;
