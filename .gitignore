@@ -1,4 +1,13 @@
 node_modules
 .env
+
 database/config
 uploads
+
+# application error logs
+dberrlog.txt
+apperrlog.txt
+dbconlog.txt
+
+#sequelize-cli config #can't use process.env
+database/config/config.json

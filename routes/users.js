@@ -4,11 +4,6 @@ const {login} = require('../lib/authentication/login');
 const {register}   = require('../lib/authentication/register');
 import isLoggedIn from '../lib/authentication/isLoggedIn';
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
 
 router.post('/login',login,(req,res,next)=>{})
 

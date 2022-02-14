@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const fs   = require('fs');
 const cors   = require('cors');
 const {corsOptions} = require('./options');
 
@@ -28,6 +29,7 @@ var usersRouter = require('./routes/users');
 let passwordsRouter = require('./routes/passwords');
 let folderRouter    = require('./routes/folder');
 let toolRouter  = require('./routes/tool');
+const { send } = require('process');
 var app = express();
 
 // view engine setup
@@ -35,7 +37,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
-console.log(corsOptions.origin)
+
 
 app.use(cors(corsOptions));
 app.use(logger('dev'));
@@ -50,20 +52,34 @@ app.use('/api/passwords',passwordsRouter);
 app.use('/api/folders',folderRouter);
 app.use('/api/tools',toolRouter);
 
-// catch 404 and forward to error handler
+// handle 404 errors
 app.use(function(req, res, next) {
-  next(createError(404));
+ res.status(404);
+ return res.send({message:"resource not found",errcode:404})
+  
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
+//error handler 
+app.use((err,req,res,next)=>{
+  //error if in developement
+  if(process.env.NODE_ENV === "development"){
+    console.log(err.stack);
+    
+  }else{
+    //save error to text file in production
+    let writeError = fs.createWriteStream('apperrlog.txt');
+    writeError.once('open',fd=>{
+      writeError.write(`${new Date(Date.now()).toUTCString()}\n`);
+      writeError.write(err.stack);
+      writeError.end();
+
+    })
+  }
+
+  //set respond status and end response
   res.status(err.status || 500);
-  res.render('error');
+  res.end();
 });
 
 module.exports = app;

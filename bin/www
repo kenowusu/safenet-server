@@ -4,6 +4,9 @@
  * Module dependencies.
  */
 
+//use es6 modules 
+require = require('esm')(module);
+
 var app = require('../app');
 var debug = require('debug')('rottpass:server');
 var http = require('http');
