@@ -68,7 +68,7 @@ app.use((err,req,res,next)=>{
     
   }else{
     //save error to text file in production
-    let writeError = fs.createWriteStream('apperrlog.txt');
+    let writeError = fs.createWriteStream(path.join(__dirname,'logs','apperrlog.txt'));
     writeError.once('open',fd=>{
       writeError.write(`${new Date(Date.now()).toUTCString()}\n`);
       writeError.write(err.stack);

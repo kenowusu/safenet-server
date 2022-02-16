@@ -1,5 +1,6 @@
 const {Sequelize} = require('sequelize');
 const fs = require('fs');
+const path = require('path');
 
 const sequelize = new Sequelize(
   {
@@ -18,7 +19,7 @@ sequelize.authenticate()
  
   }else{
       //create log file in production
-      let createDbLog = fs.createWriteStream('dbconlog.txt');
+      let createDbLog = fs.createWriteStream(path.join('logs','dbconlog.txt'));
       createDbLog.once('open',fd=>{
       createDbLog.write(`${new Date(Date.now()).toUTCString()}\n`);
       createDbLog.write('Database connected successfully');
@@ -30,7 +31,7 @@ sequelize.authenticate()
     console.error(`Error - Unable to connect to the database: ${error}`);
   }else{
      //create log file in production
-     let createDbLog = fs.createWriteStream('dberrlog.txt');
+     let createDbLog = fs.createWriteStream(path.join('logs','dberrlog.txt'));
      createDbLog.once('open',fd=>{
      createDbLog.write(`${new Date(Date.now()).toUTCString()}\n`);
      createDbLog.write(error.stack);

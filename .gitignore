@@ -1,13 +1,15 @@
-node_modules
+#ignore but backup these files
 .env
 
-database/config
-uploads
+
+node_modules
+
+
+#imported password csv files
+uploads/*
 
 # application error logs
-dberrlog.txt
-apperrlog.txt
-dbconlog.txt
+logs/*
 
-#sequelize-cli config #can't use process.env
-database/config/config.json
+#files generated in server dir lilke ssl files
+.well-known
