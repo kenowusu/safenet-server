@@ -23,7 +23,7 @@ Folder.init(
 
     //model options
     sequelize,
-    modelName:'Folder',
+    modelName:'folder',
     timestamps:true,
     createdAt:'created_at',
     updatedAt:'updated_at'

@@ -37,7 +37,7 @@ User.init(
 
     //model options
     sequelize,
-    modelName:'User',
+    modelName:'user',
     timestamps:true,
     createdAt:'created_at',
     updatedAt:'updated_at'

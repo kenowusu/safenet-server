@@ -39,7 +39,7 @@ Url.init(
 
     //model options
     sequelize,
-    modelName:'Url',
+    modelName:'url',
     timestamps:true,
     createdAt:'created_at',
     updatedAt:'updated_at'

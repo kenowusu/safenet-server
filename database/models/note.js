@@ -23,7 +23,7 @@ Note.init(
   {
 
     sequelize,
-    modelName:'Note',
+    modelName:'note',
     timestamps:true,
     createdAt:'created_at',
     updatedAt:'updated_at'
