@@ -3,13 +3,13 @@
 require('dotenv').config();
 
 
-const browserClient = process.env.devBrowserClient || process.env.proBrowserClient 
+const devBrowserClient = process.env.devBrowserClient;
+const devBrowserClientTwo = process.env.devBrowserClientTwo;
+const proBrowserClient = process.env.proBrowserClient;
 
-if(!browserClient){
-    console.log('client not defined');
-}
+
 export const corsOptions = {
-    origin:[browserClient],
+    origin:[proBrowserClient,devBrowserClient,devBrowserClientTwo],
     credentials:true
 }
 
