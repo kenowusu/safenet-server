@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {isAuthorized}  = require('../lib/authentication/isAuthenticated');
+import isAuthenticated  from '../lib/authentication/isAuthenticated';
 
 
 
@@ -16,11 +16,11 @@ import {upload} from '../lib/tools/importPassword';
 
 
 //import passwords 
-router.post('/import_password',isAuthorized,upload.single('password_import'),importPassword)
+router.post('/import_password',isAuthenticated,upload.single('password_import'),importPassword)
 
 
 
 //share password via email
-router.post('/share_password',isAuthorized,sharePassword)
+router.post('/share_password',isAuthenticated,sharePassword)
 
 module.exports = router;
