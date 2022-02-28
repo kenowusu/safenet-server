@@ -25,7 +25,8 @@
     "sequelize": "^6.6.5",
     "tldts": "^5.7.56",
     "uuid": "^8.3.2",
-    "validator": "^13.6.0"
+    "validator": "^13.6.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "sequelize-cli": "^6.3.0"
