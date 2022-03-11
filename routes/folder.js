@@ -2,23 +2,24 @@ const express = require('express');
 const router = express.Router();
 const {createFolder} = require('../lib/folder/createFolder');
 const {editFolder} = require('../lib/folder/editFolder');
+import isAuthenticated from '../lib/authentication/isAuthenticated';
+import getFolders from '../lib/folder/getFolders';
 
-
-
-router.get('/',(req,res,next)=>{
-  return res.send('Folder routes')
-})
+// get folders 
+router.get('/',isAuthenticated,getFolders);
 
 
 
 
 //create folder
-router.post('/',createFolder,(req,res,next)=>{})
+router.post('/',isAuthenticated,createFolder,(req,res,next)=>{})
 
 
 
 //edit folder
-router.put('/edit/:id',editFolder,(req,res,next)=>{})
+router.put('/edit/:id',isAuthenticated,editFolder,(req,res,next)=>{})
+
+
 
 
 
