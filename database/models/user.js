@@ -1,5 +1,6 @@
 const sequelize = require('../config').connection;
 const {Password}  = require('./password');
+const {Folder}  = require('./folder');
 const {DataTypes,Model} = require('sequelize');
 const {Url} = require('./url');
 const bcrypt = require('bcrypt');
@@ -56,7 +57,10 @@ User.addHook('beforeCreate',(user,options)=>{
 //association
 User.hasMany(Password,{foreignKey:'user_id',key:'id',allowNull:false,constraints:true})
 // sequelize.sync({force:true})
-User.hasMany(Url,{foreignKey:'user_id',key:'id',allowNull:false,constraints:true})
+User.hasMany(Url,{foreignKey:'user_id',key:'id',allowNull:false,constraints:true});
+
+//association
+User.hasMany(Folder,{foreignKey:'user_id',key:'id',allowNull:false,constraints:true})
 
 
 
