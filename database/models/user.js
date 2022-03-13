@@ -32,6 +32,10 @@ User.init(
     password:{
       type:DataTypes.STRING,
       allowNull:false
+    },
+    is_guest:{
+      type:DataTypes.STRING,
+      defaultValue:false
     }
   },
   {

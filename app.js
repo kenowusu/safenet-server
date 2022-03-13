@@ -26,6 +26,7 @@ const noteModel   = require('./database/models/note');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const guestsRouter = require('./routes/guest');
 let passwordsRouter = require('./routes/passwords');
 let folderRouter    = require('./routes/folder');
 let toolRouter  = require('./routes/tool');
@@ -47,6 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/guests', guestsRouter);
 app.use('/api/passwords',passwordsRouter);
 app.use('/api/folders',folderRouter);
 app.use('/api/tools',toolRouter);
