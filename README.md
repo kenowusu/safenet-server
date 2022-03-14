@@ -42,6 +42,9 @@ npx sequelize db:migrate
 npm start
 ```
 
+## Quick Demo
+https://user-images.githubusercontent.com/87645675/158195779-361c8e90-b4da-4f4f-85c9-e3317944648a.mp4
+
 
 
 ## Currently Learning
